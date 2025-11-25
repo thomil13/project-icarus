@@ -1,1 +1,3 @@
-# project-icarus
+# Project Icarus
+
+Developed as the Capstone project in a sixteen week coding bootcamp, Project Icarus is an image sharing site designed to allow for easy uploading and sharing of images of any type. It is designed to be fully responsive and was built using HTML & CSS, utilising Bootstrap5 for the interface, and Django for the backend. The current name, Project Icarus, is a placeholder and meant to express my feeling that I'm flying just that little bit too close to the sun with this project...
