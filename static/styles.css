@@ -1,0 +1,15 @@
+:root {
+    --primary-font: 'Raleway', sans-serif;
+    --primary-color: #fff9c4;
+    --secondary-color: #c8e6c9;
+    --accent-color: #b3e5fc;
+    --highlight-color: #fbc02d;
+    --text-color:#333333;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
