@@ -1,0 +1,29 @@
+:root {
+    --primary-font: 'Raleway', sans-serif;
+    --primary-color: #fff9c4;
+    --secondary-color: #f5f5dc;
+    --tertiary-color: #c8e6c9;
+    --accent-color: #b3e5fc;
+    --highlight-color: #fbc02d;
+    --text-color:#333333;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.nav-pills .nav-link {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+

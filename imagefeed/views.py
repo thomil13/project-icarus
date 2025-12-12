@@ -8,7 +8,7 @@ from .models import ImagePost
 
 class ImagePostListView(generic.ListView):
     queryset = ImagePost.objects.all()
-    template_name = 'index.html'
+    template_name = 'imagefeed/index.html'
     context_object_name = 'imageposts'
     paginate_by = 6
 
