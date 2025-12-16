@@ -21,15 +21,15 @@
                                     <img class="card-img-top" src=" {{ post.image.url }}" alt="{{ post.title }}">
                                     {% endif %}
                                 <div class="image-flash">
-                                    <p class="uploaded_by">Author: {{ ImagePost.uploaded_by }}</p>
+                                    <p class="uploaded_by">Author: {{ post.uploaded_by }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'imagepost_detail' imagepost_detail.slug %}" class="post-link">
-                                <h2 class="card-title">{{ ImagePost.title }}</h2>
+                            <a href="{% url 'imagepost_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ ImagePost.uploaded_on}}
+                            <p class="card-text text-muted h6">{{ post.uploaded_at }}
                             </p>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ from .models import ImagePost
 class ImagePostListView(generic.ListView):
     queryset = ImagePost.objects.all()
     template_name = 'imagefeed/index.html'
-    context_object_name = 'imageposts'
+    context_object_name = 'post_list'
     paginate_by = 6
 
     def get_queryset(self):
