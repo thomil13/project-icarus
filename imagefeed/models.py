@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Pending Approval"), (1, "Approved"))
 
@@ -8,7 +9,8 @@ STATUS = ((0, "Pending Approval"), (1, "Approved"))
 
 class ImagePost(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    image = CloudinaryField('image', default='placeholder')
+    description = models.TextField(max_length=500)
     alt_text = models.CharField(max_length=150)
     slug = models.SlugField(max_length=200, unique=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)

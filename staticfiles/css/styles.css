@@ -14,16 +14,22 @@ body {
     color: var(--text-color);
 }
 
-.nav-pills .nav-link {
+.nav.nav-pills .nav-link {
     background-color: var(--secondary-color);
     color: var(--text-color);
+    font-weight: bold;
     border-radius: 20px;
     margin: 10px;
 }
 
-.nav-pills .nav-link.active {
+.nav.nav-pills .nav-link.active {
     background-color: var(--tertiary-color);
     color: var(--text-color);
-    font-weight: bold;
+    font-weight: bolder;
+}
+
+.nav.nav-pills .nav-link:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
