@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
-from .models import ImagePost
-from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from .models import ImagePost, Comment
+from .forms import CommentForm, UserPostForm
 
 
 # Create your views here.
@@ -56,3 +58,78 @@ def post_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+
+
+@login_required
+def delete_post(request, pk):
+    """Delete a post if the user is the author."""
+    post = get_object_or_404(ImagePost, pk=pk)
+    
+    if post.uploaded_by != request.user:
+        messages.add_message(
+            request, messages.ERROR,
+            'You cannot delete a post you did not create'
+        )
+        return redirect('imagepost_detail', slug=post.slug)
+    
+    post.delete()
+    messages.add_message(
+        request, messages.SUCCESS,
+        'Post deleted successfully'
+    )
+    return redirect('home')
+
+
+@login_required
+def edit_post(request, pk):
+    """Edit a post if the user is the author."""
+    post = get_object_or_404(ImagePost, pk=pk)
+    
+    if post.uploaded_by != request.user:
+        messages.add_message(
+            request, messages.ERROR,
+            'You cannot edit a post you did not create'
+        )
+        return redirect('imagepost_detail', slug=post.slug)
+    
+    if request.method == 'POST':
+        form = UserPostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Post updated successfully'
+            )
+            return redirect('imagepost_detail', slug=post.slug)
+    else:
+        form = UserPostForm(instance=post)
+    
+    return render(
+        request,
+        'imagefeed/edit-post.html',
+        {
+            'form': form,
+            'post': post,
+        },
+    )
+
+
+@login_required
+def delete_comment(request, pk):
+    """Delete a comment if the user is the author."""
+    comment = get_object_or_404(Comment, pk=pk)
+    post_slug = comment.image_post.slug
+    
+    if comment.author != request.user.username:
+        messages.add_message(
+            request, messages.ERROR,
+            'You cannot delete a comment you did not create'
+        )
+        return redirect('imagepost_detail', slug=post_slug)
+    
+    comment.delete()
+    messages.add_message(
+        request, messages.SUCCESS,
+        'Comment deleted successfully'
+    )
+    return redirect('imagepost_detail', slug=post_slug)
