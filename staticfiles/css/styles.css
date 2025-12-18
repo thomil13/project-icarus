@@ -19,6 +19,7 @@ body {
     color: var(--text-color);
     font-weight: bold;
     border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
 }
 
@@ -33,7 +34,7 @@ body {
     color: var(--text-color);
 }
 
-.card {
+.card .card-body {
     background-color: var(--tertiary-color);
     border: none;
     border-radius: 20px;
