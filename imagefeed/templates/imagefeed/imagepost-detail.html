@@ -68,7 +68,7 @@
     </div>
     <!-- Displaying count of comments -->
     <div class="row">
-        <div class="col-12">
+        <div class="col-sm-12 col-md-4">
             <strong class="text-secondary"
                 ><i class="far fa-comments"></i> {{ comment_count }}</strong
             >
@@ -79,51 +79,51 @@
     </div>
     <!-- Displaying Comments -->
     <div class="row">
-        <div class="col-md-8 card mb-4 mt-3">
+        <!-- Existing Comments - Full width on mobile, 7 columns on md+ -->
+        <div class="col-12 col-md-7 card mb-4 order-md-1">
             <h3>Comments:</h3>
-            <div class="card-body">
-                <!--  We want a for loop inside the empty control tags
-                  to iterate through each comment in comments  -->
-                {% for comment in comments %}
-                <div
-                    class="p-2 comments {% if not comment.approved and comment.author == user %} faded {% elif not comment.approved %} d-none {% endif %}"
-                >
-                    <p class="font-weight-bold">
-                        {{ comment.author }}
-                        <span class="font-weight-normal"
-                            >{{ comment.created_on }}</span
+                <div class="card-body">
+                    <!--  We want a for loop inside the empty control tags
+                    to iterate through each comment in comments  -->
+                    {% for comment in comments %}
+                    <div
+                        class="p-2 comments {% if not comment.approved and comment.author == user %} faded {% elif not comment.approved %} d-none {% endif %}"
+                    >
+                        <p class="font-weight-bold">
+                            {{ comment.author }}
+                            <span class="font-weight-normal"
+                                >{{ comment.created_on }}</span
+                            >
+                            wrote:
+                        </p>
+                        <div id="comment{{ comment.id }}">
+                            {{ comment.body|linebreaks }}
+                        </div>
+                        {% if not comment.approved and comment.author == user %}
+                        <p class="approval">This comment is awaiting approval</p>
+                        <!-- prettier-ignore -->
+                        {% endif %}
+                        {% if user.is_authenticated and comment.author == user %}
+                        <button
+                            class="btn btn-delete"
+                            data-comment_id="{{ comment.id }}"
                         >
-                        wrote:
-                    </p>
-                    <div id="comment{{ comment.id }}">
-                        {{ comment.body|linebreaks }}
+                            Delete
+                        </button>
+                        <button
+                            class="btn btn-edit"
+                            data-comment_id="{{ comment.id }}"
+                        >
+                            Edit
+                        </button>
+                        {% endif %}
                     </div>
-                    {% if not comment.approved and comment.author == user %}
-                    <p class="approval">This comment is awaiting approval</p>
-                    <!-- prettier-ignore -->
-                    {% endif %}
-                    {% if user.is_authenticated and comment.author == user %}
-                    <button
-                        class="btn btn-delete"
-                        data-comment_id="{{ comment.id }}"
-                    >
-                        Delete
-                    </button>
-                    <button
-                        class="btn btn-edit"
-                        data-comment_id="{{ comment.id }}"
-                    >
-                        Edit
-                    </button>
-                    {% endif %}
+                    <!-- Our for loop ends here -->
+                    {% endfor %}
                 </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
             </div>
-        </div>
-        <!-- Creating New Comments -->
-        <div class="container-text-center">
-            <div class="col-md-4 card mb-4 mt-3">
+            <!-- Creating New Comments - Full width on mobile, 4 columns on md+ -->
+            <div class="col-12 col-md-4 card mb-4 mt-3 mt-md-0 order-md-2 ms-md-auto">
                 <div class="card-body">
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
@@ -146,8 +146,7 @@
         </div>
     </div>
 </div>
-
-<!-- Delete confirmation modal -->
+<!-- Delete Comment Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

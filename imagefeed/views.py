@@ -12,7 +12,22 @@ class ImagePostListView(generic.ListView):
     queryset = ImagePost.objects.filter(status=1)
     template_name = "imagefeed/index.html"
     context_object_name = "post_list"
-    paginate_by = 6
+    paginate_by = 4
+
+
+class UserImagePostListView(generic.ListView):
+    """Display only posts by the logged-in user."""
+    template_name = "imagefeed/my-posts.html"
+    context_object_name = "post_list"
+    paginate_by = 4
+
+    def get_queryset(self):
+        return ImagePost.objects.filter(uploaded_by=self.request.user)
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('account_login')
+        return super().dispatch(request, *args, **kwargs)
 
 
 def post_detail(request, slug):
@@ -64,14 +79,14 @@ def post_detail(request, slug):
 def delete_post(request, pk):
     """Delete a post if the user is the author."""
     post = get_object_or_404(ImagePost, pk=pk)
-    
+
     if post.uploaded_by != request.user:
         messages.add_message(
             request, messages.ERROR,
             'You cannot delete a post you did not create'
         )
         return redirect('imagepost_detail', slug=post.slug)
-    
+
     post.delete()
     messages.add_message(
         request, messages.SUCCESS,
@@ -96,7 +111,7 @@ def create_post(request):
             return redirect('imagepost_detail', slug=post.slug)
     else:
         form = UserPostForm()
-    
+
     return render(
         request,
         'imagefeed/new-post.html',
@@ -110,14 +125,14 @@ def create_post(request):
 def edit_post(request, pk):
     """Edit a post if the user is the author."""
     post = get_object_or_404(ImagePost, pk=pk)
-    
+
     if post.uploaded_by != request.user:
         messages.add_message(
             request, messages.ERROR,
             'You cannot edit a post you did not create'
         )
         return redirect('imagepost_detail', slug=post.slug)
-    
+
     if request.method == 'POST':
         form = UserPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
@@ -129,7 +144,7 @@ def edit_post(request, pk):
             return redirect('imagepost_detail', slug=post.slug)
     else:
         form = UserPostForm(instance=post)
-    
+
     return render(
         request,
         'imagefeed/edit-post.html',
@@ -145,14 +160,14 @@ def delete_comment(request, pk):
     """Delete a comment if the user is the author."""
     comment = get_object_or_404(Comment, pk=pk)
     post_slug = comment.image_post.slug
-    
+
     if comment.author != request.user.username:
         messages.add_message(
             request, messages.ERROR,
             'You cannot delete a comment you did not create'
         )
         return redirect('imagepost_detail', slug=post_slug)
-    
+
     comment.delete()
     messages.add_message(
         request, messages.SUCCESS,

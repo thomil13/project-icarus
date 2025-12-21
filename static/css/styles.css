@@ -1,3 +1,5 @@
+/* Global Styles */
+
 :root {
     --primary-font: 'Raleway', sans-serif;
     --primary-color: #fff9c4;
@@ -14,12 +16,22 @@ body {
     color: var(--text-color);
 }
 
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Navbar Styling */
+
 .nav.nav-pills .nav-link {
     background-color: var(--secondary-color);
     color: var(--text-color);
     font-weight: bold;
     border-radius: 20px;
     margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav.nav-pills .nav-link.active {
@@ -33,10 +45,90 @@ body {
     color: var(--text-color);
 }
 
+/* Class Specific Styling */
+
 .card {
     background-color: var(--tertiary-color);
     border: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 0;
 }
+
+.pagination .page-link{
+    margin: 20px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    color: var(--text-color);
+
+}
+
+.pagination .page-link:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn-signup {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+.btn-signup:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn-danger {
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.btn-warning {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-right: 5px;
+}
+
+/* Media Queries for Responsive Design */
+
+@media (min-width: 576px) {
+    .card {
+        margin: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        margin: 20px;
+    }
+}
+
