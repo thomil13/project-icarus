@@ -26,7 +26,7 @@ class ImagePost(models.Model):
 
 class Comment(models.Model):
     image_post = models.ForeignKey(ImagePost, related_name='comments', on_delete=models.CASCADE)
-    author = models.CharField(max_length=80)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
