@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Set up the confirm button to delete
                 if (confirmDeleteBtn) {
-                    confirmDeleteBtn.href = `/imagefeed/post/${postId}/delete/`;
+                    confirmDeleteBtn.href = `/post/${postId}/delete/`;
                 }
             }
         });
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Edit button clicked');
             const postId = this.getAttribute('data-post-id');
             console.log('Post ID:', postId);
-            window.location.href = `/imagefeed/post/${postId}/edit/`;
+            window.location.href = `/post/${postId}/edit/`;
         });
     }
 });
