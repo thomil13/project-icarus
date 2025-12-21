@@ -3,6 +3,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'account_signup' as signup_url %}
+{% url 'new_post' as new_post_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@
     <nav class="nav nav-pills nav-justified">
       <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{{ home_url }}">Home</a>
       {% if user.is_authenticated %}
-      <a class="nav-link" href="#">New Post</a>
+      <a class="nav-link {% if request.path == new_post_url %}active{% endif %}" href="{{ new_post_url }}">New Post</a>
       <a class="nav-link" href="#">My Posts</a>
       <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Log Out</a>
       {% else %}

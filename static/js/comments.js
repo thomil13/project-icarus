@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Set up the confirm button to delete
                 if (confirmDeleteLink) {
-                    confirmDeleteLink.href = `/imagefeed/comment/${commentId}/delete/`;
+                    confirmDeleteLink.href = `/comment/${commentId}/delete/`;
                 }
             }
         });

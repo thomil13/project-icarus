@@ -81,6 +81,32 @@ def delete_post(request, pk):
 
 
 @login_required
+def create_post(request):
+    """Create a new post."""
+    if request.method == 'POST':
+        form = UserPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.uploaded_by = request.user
+            post.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Post created successfully'
+            )
+            return redirect('imagepost_detail', slug=post.slug)
+    else:
+        form = UserPostForm()
+    
+    return render(
+        request,
+        'imagefeed/new-post.html',
+        {
+            'post_create_form': form,
+        },
+    )
+
+
+@login_required
 def edit_post(request, pk):
     """Edit a post if the user is the author."""
     post = get_object_or_404(ImagePost, pk=pk)
