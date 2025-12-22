@@ -55,6 +55,32 @@ footer {
     margin: 0;
 }
 
+.card-img-top {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.modal-content {
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    font-family: var(--primary-font)
+    color: var(--text-color);
+}
+
+.modal-content .btn {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
 .pagination .page-link{
     margin: 20px;
     text-align: center;
@@ -69,6 +95,19 @@ footer {
     color: var(--text-color);
 }
 
+.stretched-link {
+    text-decoration: none;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.scale {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+
 .btn-signup {
     background-color: var(--tertiary-color);
     color: var(--text-color);
@@ -78,9 +117,20 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
 }
+
 .btn-signup:hover {
     background-color: var(--accent-color);
     color: var(--text-color);
+}
+
+.btn-normal {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 .btn-danger {
@@ -102,6 +152,12 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     margin-right: 5px;
+}
+
+/* ID Specific Styling */
+
+#leaveComment {
+    white-space: nowrap;
 }
 
 /* Media Queries for Responsive Design */

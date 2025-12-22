@@ -11,24 +11,23 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-sm-12 col-md-6">
-                    <div class="card mb-4 w-75 mx-auto">
+                    <div class="card mb-4 mx-2">
                         <div class="card-body">
                             <div class="image-container">
+                            <a href="{% url 'imagepost_detail' post.slug %}" class="stretched-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                            </a>
                                         {% if "placeholder" in post.image.url %}
                                     <img class="card-img-top" src="{% static 'images/default.jpg' %}"
                                     alt="placeholder image">
                                     {% else %}
                                     <img class="card-img-top" src=" {{ post.image.url }}" alt="{{ post.title }}">
                                     {% endif %}
+                                <hr />
                                 <div class="image-flash">
-                                    <p class="uploaded_by">Author: {{ post.uploaded_by }}</p>
+                                    <p class="uploaded_by">Uploaded By: {{ post.uploaded_by }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'imagepost_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                            </a>
-
-                            <hr />
                             <p class="card-text text-muted h6">{{ post.uploaded_at }}
                             </p>
                         </div>

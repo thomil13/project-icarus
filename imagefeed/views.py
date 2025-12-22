@@ -161,7 +161,7 @@ def delete_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     post_slug = comment.image_post.slug
 
-    if comment.author != request.user.username:
+    if comment.author != request.user:
         messages.add_message(
             request, messages.ERROR,
             'You cannot delete a comment you did not create'
@@ -174,3 +174,29 @@ def delete_comment(request, pk):
         'Comment deleted successfully'
     )
     return redirect('imagepost_detail', slug=post_slug)
+
+
+@login_required
+def edit_comment(request, pk):
+    """Edit a comment if the user is the author."""
+    comment = get_object_or_404(Comment, pk=pk)
+    post_slug = comment.image_post.slug
+
+    if comment.author != request.user:
+        return JsonResponse({
+            'success': False,
+            'message': 'You cannot edit a comment you did not create'
+        })
+
+    if request.method == 'POST':
+        comment.body = request.POST.get('body')
+        comment.save()
+        return JsonResponse({
+            'success': True,
+            'message': 'Comment updated successfully'
+        })
+
+    return JsonResponse({
+        'success': False,
+        'message': 'Invalid request method'
+    })
