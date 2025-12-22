@@ -72,6 +72,19 @@ The full project board containing all uswer stories and their MoSCoW classificti
 ### Home Page
 <table><tr><td><img src="documentation/images/wireframe-PI-home-desktop.png" alt="Wireframe of home page on desktop"></td><td><img src="documentation/images/wireframe-PI-home-mobile.png" alt="Wireframe of home page on mobile"></td></tr></table>
 
+### About
+<table><tr><td><img src="documentation/images/wireframe-PI-about-desktop.png" alt="Wireframe of About page on desktop"></td><td><img src="documentation/images/wireframe-PI-about-mobile.png" alt="Wireframe of about page on mobile"></td></tr></table>
+
+### New Post Page
+<table><tr><td><img src="documentation/images/wireframe-PI-new-post-desktop.png" alt="Wireframe of New Post page on desktop"></td><td><img src="documentation/images/wireframe-PI-new-post-mobile.png" alt="Wireframe of New Post page on mobile"></td></tr></table>
+
+### Signup
+<table><tr><td><img src="documentation/images/wireframe-PI-signup-desktop.png" alt="Wireframe of Signup page on desktop"></td><td><img src="documentation/images/wireframe-PI-signup-mobile.png" alt="Wireframe of Sign Up page on mobile"></td></tr></table>
+
+### Login
+<table><tr><td><img src="documentation/images/wireframe-PI-login-desktop.png" alt="Wireframe of login page on desktop"></td><td><img src="documentation/images/wireframe-PI-login-mobile.png" alt="Wireframe of login page on mobile"></td></tr></table>
+
+
 [Home](#overview)
 
 ## Brand Identity
