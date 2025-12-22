@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5">
+        <!-- Project Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4">{{ aboutproject.title }}</h2>
+                <div>
+                    {{ aboutproject.content|safe }}
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <!-- Author Section -->
+        <div class="row mt-5">
+            <div class="col-12 col-md-4 mb-4 mb-md-0">
+                <img src="{% static 'images/about_headshot.jpg' %}" class="img-fluid rounded" alt="Author Headshot">
+            </div>
+            <div class="col-12 col-md-8">
+                <h2 class="mb-4">{{ aboutauthor.title }}</h2>
+                <div>
+                    {{ aboutauthor.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

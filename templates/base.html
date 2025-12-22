@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'about' as about_url %}
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_logout' as logout_url %}
@@ -53,6 +54,13 @@
   <!-- Footer -->
 
   <footer>
+    <div class="container center">
+      <nav class="nav nav-pills nav-justified">
+        <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page" href="{{ about_url }}">About Project Icarus</a>
+      </nav>
+    </div>
+
+    
   </footer>
 
 <!-- Bootstrap JS -->

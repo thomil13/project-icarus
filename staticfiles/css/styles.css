@@ -21,6 +21,10 @@ footer {
     padding: 10px;
     background-color: var(--secondary-color);
     color: var(--text-color);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    bottom: 0;
+    position: fixed;
 }
 
 /* Navbar Styling */
@@ -64,7 +68,7 @@ footer {
 .modal-content {
     border-radius: 20px;
     background-color: var(--secondary-color);
-    font-family: var(--primary-font)
+    font-family: var(--primary-font);
     color: var(--text-color);
 }
 
