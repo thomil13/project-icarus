@@ -46,10 +46,31 @@ The design aims to generate a calm ambience, using pastel greens and yellows to 
 [Home](#overview)
 
 ## User Stories
+The full project board containing all uswer stories and their MoSCoW classifiction, including those that were not implemented or may form the basis for future further developments of Project Icarus can be found here: [Project Board - Project Icarus](https://github.com/users/thomil13/projects/6/views/1)
+
+
+### Account Creation & Management
+- As a user, I want to register an account so that I can upload and comment on images.
+- As a user, I want to log in securely so that I can access my account and content.
+
+### Content Access & Interaction
+- As a registered user, I want to upload images so that I can share them with others.
+- As a user, I want to browse approved images so that I can see what others have shared.
+- As a registered user, I want to view a list of only my own posts so that I can easily manage my content
+- As a registered user, I want to edit or delete my own uploaded images and comments so that I can control my contributions.
+- As a user, I want to comment on images so that I can engage with other users’ content.
+
+### Administration
+- As an admin, I want to review and approve uploaded images so that only appropriate content is visible to users.
+- As an admin, I want to review and approve submitted comments so that discussions remain respectful and safe.
+
 
 [Home](#overview)
 
 ## Wireframes
+
+### Home Page
+
 
 [Home](#overview)
 
