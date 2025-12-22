@@ -70,8 +70,7 @@ The full project board containing all uswer stories and their MoSCoW classificti
 ## Wireframes
 
 ### Home Page
-![Wireframe of homepage on desktop](documentation/images/wireframe-PI-home-desktop.png) ![Wireframe of homepage on mobile](documentation/images/wireframe-PI-home-mobile.png) 
-
+<table><tr><td><img src="documentation/images/wireframe-PI-home-desktop.png" alt="Wireframe of home page on desktop"></td><td><img src="documentation/images/wireframe-PI-home-mobile.png" alt="Wireframe of home page on mobile"></td></tr></table>
 
 [Home](#overview)
 
