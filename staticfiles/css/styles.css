@@ -29,7 +29,7 @@ body {
 }
 
 main {
-    padding-bottom: 20px; /*ensures content visibility above footer*/
+    padding-bottom: 30px; /*ensures content visibility above footer*/
 }
 
 footer {
