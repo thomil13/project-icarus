@@ -88,6 +88,11 @@ The full project board containing all uswer stories and their MoSCoW classificti
 [Home](#overview)
 
 ## Brand Identity
+![Prject Icarus Logo](documentation/images/project-icarus-icon.png)
+
+The Logo for Project Icarus references the dual nature, with the wings and sun over the ocean recalling Icarus flying too close to the sun, and the stylised camera lens referencing the project's nature as a photo-sharing platform. This logo was created by Microsoft Copilot, and a variation showing only the wings is used as the favicon for the site.
+
+![
 
 [Home](#overview)
 
