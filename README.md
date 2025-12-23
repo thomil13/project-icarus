@@ -156,6 +156,20 @@ Models, Views, and other python files were validated through Code Institute's li
 
 # Future Additions
 
+## Near Term
+
+- Implementation of login, signup, new post and new comment functionality as modals, rather than as separate pages
+- Implementation of 3rd-party & social media login
+- Interface redesign to scale down pictures in Image Feed
+
+## Long Term
+
+- Implement Gallery functionality
+- Change interface to emulate "Cover Flow" image scrolling
+- Implement full user profiles and profile pages
+- Add Two-Factor-Authentication
+- Add login via hardware tokens (Yubikey)
+
 # Credits
 
 All images used in this project bearing the watermark of the author were either taken by me personally or by a family member of mine and are sourced from my family's photo library.
